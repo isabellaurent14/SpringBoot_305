@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="student : ${students}">
+    <h2 th:text="${student.name}"></h2>
+    <h6 th:inline="text">AKA [[${student.realname}]]</h6>
+    <ul>
+        <th:block  th:each="course : ${student.courses}">
+            <li th:inline="text"><b>[[${course.title}]]</b> enrolled in [[${course.year}]].</li>
+        </th:block>
+    </ul>
+</div>
+</body>
+</html>
